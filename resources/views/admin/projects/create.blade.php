@@ -50,6 +50,19 @@
         </div>
 
         <div class="mb-3">
+            <label for="type_id" class="form-label text-primary"></label>
+            <select class="form-select" name="type_id" id="type_id">
+                
+                <option value=""></option>
+
+                @foreach ($types as $type)
+                <option value="{{$type->id}}" {{ $type->id == old('type_id') ? 'selected' : '' }}>{{ $type->name }}</option>
+                @endforeach
+
+            </select>
+        </div>
+
+        <div class="mb-3">
             <label for="link_GitHub" class="form-label text-primary">Link di GitHub</label>
             <input type="text" class="form-control  @error('link_GitHub') is-invalid @enderror " id="link_GitHub" name="link_GitHub" value='{{old('link_GitHub')}}'>
             @error('link_GitHub')
